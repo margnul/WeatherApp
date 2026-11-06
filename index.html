@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="app-card">
+            <h1>Weather App</h1>
+            <data value="" id="data-label"></data>
+            <div class="row row-input-and-button">
+                <input type="text" name="city-input" id="city-input" class="input">
+                <button class="search-button" id="search-button">
+                    <svg id="loupe-icon" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.8 12.8L9.90005 9.9M11.4667 6.13334C11.4667 9.07886 9.0789 11.4667 6.13338 11.4667C3.18786 11.4667 0.800049 9.07886 0.800049 6.13334C0.800049 3.18782 3.18786 0.800003 6.13338 0.800003C9.0789 0.800003 11.4667 3.18782 11.4667 6.13334Z"
+                            stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke="#1E1E1E" />
+                    </svg>
+                    <svg id="loading-icon" width="60" height="60" viewBox="0 0 38 38">
+                        <g transform="translate(19 19)">
+                            <g transform="rotate(0)">
+                                <circle cx="0" cy="12" r="3" fill="#000000" opacity="0.125">
+                                </circle>
+                            </g>
+                            <g transform="rotate(45)">
+                                <circle cx="0" cy="12" r="3" fill="#000000" opacity="0.25">
+                                </circle>
+                            </g>
+                            <g transform="rotate(90)">
+                                <circle cx="0" cy="12" r="3" fill="#000000" opacity="0.375">
+                                </circle>
+                            </g>
+                            <g transform="rotate(135)">
+                                <circle cx="0" cy="12" r="3" fill="#000000" opacity="0.5">
+                                </circle>
+                            </g>
+                            <g transform="rotate(180)">
+                                <circle cx="0" cy="12" r="3" fill="#000000" opacity="0.625">
+                                </circle>
+                            </g>
+                            <g transform="rotate(225)">
+                                <circle cx="0" cy="12" r="3" fill="#000000" opacity="0.75">
+                                </circle>
+                            </g>
+                            <g transform="rotate(270)">
+                                <circle cx="0" cy="12" r="3" fill="#000000" opacity="0.875">
+                                </circle>
+                            </g>
+                            <g transform="rotate(315)">
+                                <circle cx="0" cy="12" r="3" fill="#000000" opacity="1">
+                                </circle>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div class="row" id="weather-wrapper">
+                <div class="weather-display">
+                    <h2 id="city-title"></h2>
+                    <div class="data-wrapper data-wrapper-temperature">
+                        <span id="temperature"></span>
+                        <img src="" alt="" id="weather-image" class="weather-image">
+                    </div>
+                    <div class="data-wrapper data-wrapper-wind-and-humidity">
+                        <div class="row row-icon-with-text">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor">
+                                <path
+                                    d="M184,184a32,32,0,0,1-32,32c-13.7,0-26.95-8.93-31.5-21.22a8,8,0,0,1,15-5.56C137.74,195.27,145,200,152,200a16,16,0,0,0,0-32H40a8,8,0,0,1,0-16H152A32,32,0,0,1,184,184Zm-64-80a32,32,0,0,0,0-64c-13.7,0-26.95,8.93-31.5,21.22a8,8,0,0,0,15,5.56C105.74,60.73,113,56,120,56a16,16,0,0,1,0,32H24a8,8,0,0,0,0,16Zm88-32c-13.7,0-26.95,8.93-31.5,21.22a8,8,0,0,0,15,5.56C193.74,92.73,201,88,208,88a16,16,0,0,1,0,32H32a8,8,0,0,0,0,16H208a32,32,0,0,0,0-64Z" />
+                            </svg>
+                            <span>Wind</span>
+                            <span>|</span>
+                            <span id="wind"></span>
+                        </div>
+                        <div class="row row-icon-with-text">
+                            <svg fill="#000000" width="800px" height="800px" viewBox="-1.82 0 15.99 15.99"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="Layer_2" data-name="Layer 2">
+                                    <g id="Layer_1-2" data-name="Layer 1">
+                                        <path
+                                            d="M11.08,6.06,6.58.19a.52.52,0,0,0-.8,0L1.28,6.06a6.18,6.18,0,1,0,10.44,6.49A6.13,6.13,0,0,0,11.08,6.06Zm-.26,6A5.07,5.07,0,0,1,6.18,15,5.08,5.08,0,0,1,1.54,12.1a5.08,5.08,0,0,1,.53-5.43L6.18,1.31l4.11,5.36A5.08,5.08,0,0,1,10.82,12.1ZM10.18,10a4,4,0,0,1-4,4,.5.5,0,0,1,0-1,3,3,0,0,0,3-3,.5.5,0,0,1,1,0Z" />
+                                    </g>
+                                </g>
+                            </svg>
+                            <span>Hum</span>
+                            <span>|</span>
+                            <span id="humidity"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="error-display">
+                    <p id="error-data-display"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
